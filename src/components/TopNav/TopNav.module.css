@@ -1,0 +1,46 @@
+.nav {
+  position: sticky;
+  top: 12px;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  background-color: var(--cream);
+  color: #111;
+  padding: 14px 20px;
+  border-radius: 999px;
+  margin-bottom: 32px;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: 40px;
+  height: 40px;
+}
+
+.iconButton.right {
+  justify-self: end;
+}
+
+.iconButton:hover {
+  opacity: 0.6;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: center;
+  line-height: 1;
+}
