@@ -5,7 +5,7 @@ export interface TopNavProps {
   name?: string
 }
 
-export default function TopNav({ name = 'benjame abi' }: TopNavProps) {
+export default function TopNav({ name = 'Enrique Diaz' }: TopNavProps) {
   return (
     <nav className={styles.nav}>
       <button className={styles.iconButton} aria-label="Menu">

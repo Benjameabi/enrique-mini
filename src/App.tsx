@@ -5,15 +5,17 @@ import TopNav from './components/TopNav/TopNav'
 import LinkCarousel from './components/LinkCarousel/LinkCarousel'
 import FeaturedSection from './components/FeaturedCard/FeaturedCard'
 import ToolCarousel from './components/ToolCarousel/ToolCarousel'
-import YouTubeSubscribe from './components/YouTubeSubscribe/YouTubeSubscribe'
-import VideoCard from './components/VideoCard/VideoCard'
+import NewsletterCTA from './components/NewsletterCTA/NewsletterCTA'
+import PodcastSection from './components/PodcastSection/PodcastSection'
 import {
   featuredWork,
+  podcastPageUrl,
+  podcastSectionCopy,
+  podcastShows,
   profile,
   socialLinks,
+  siteUrl,
   tools,
-  videos,
-  youtube,
 } from './data/links'
 
 export default function App() {
@@ -29,23 +31,22 @@ export default function App() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className={styles.body}
         >
-          <LinkCarousel title="My Links" links={socialLinks} />
+          <LinkCarousel title="Kontaktvägar" links={socialLinks} />
 
-          <FeaturedSection title="Featured Work" items={featuredWork} />
+          <FeaturedSection title="Kom igång" items={featuredWork} />
 
-          <ToolCarousel title="My Stack" tools={tools} />
+          <ToolCarousel title="Hur jag kan stötta dig" tools={tools} />
 
-          <YouTubeSubscribe
-            title="Recent Videos"
-            handle={youtube.handle}
-            channelUrl={youtube.channelUrl}
+          <PodcastSection
+            pageUrl={podcastPageUrl}
+            title={podcastSectionCopy.title}
+            intro={podcastSectionCopy.intro}
+            primaryCta={podcastSectionCopy.primaryCta}
+            primarySubtitle={podcastSectionCopy.primarySubtitle}
+            shows={podcastShows}
           />
 
-          <div className={styles.videoList}>
-            {videos.map((video) => (
-              <VideoCard key={video.id} video={video} />
-            ))}
-          </div>
+          <NewsletterCTA href={siteUrl} />
         </motion.div>
 
         <motion.footer
@@ -55,21 +56,25 @@ export default function App() {
           transition={{ delay: 0.4 }}
         >
           <p className={styles.footerTagline}>
-            Build practical tools.<br />
-            Tell honest stories.{' '}
-            <a href="#contact" className={styles.footerHighlight}>
-              Start here
+            Börja på en resa mot den bästa versionen av dig själv.{' '}
+            <a href={siteUrl} className={styles.footerHighlight}>
+              Besök enriquediaz.se
             </a>
           </p>
 
-          <a href="mailto:hello@benjameabi.com" className={styles.footerEmail}>
-            hello@benjameabi.com
+          <a href="mailto:kontakt@enriquediaz.se" className={styles.footerEmail}>
+            kontakt@enriquediaz.se
           </a>
 
           <div className={styles.footerBottom}>
-            <p className={styles.madeWithLove}>Made with love</p>
+            <p className={styles.madeWithLove}>
+              643 92 Vingåker, Sverige ·{' '}
+              <a href="tel:+46731555052" className={styles.footerHighlight}>
+                +46 73 155 50 52
+              </a>
+            </p>
             <p className={styles.copyright}>
-              © {new Date().getFullYear()} All rights reserved
+              © {new Date().getFullYear()} Enrique Diaz. Alla rättigheter förbehållna.
             </p>
           </div>
         </motion.footer>

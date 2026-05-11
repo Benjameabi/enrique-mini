@@ -1,6 +1,13 @@
 import { motion } from 'framer-motion'
 import styles from './VideoCard.module.css'
-import type { Video } from '../../data/links'
+
+/** YouTube-backed row item (lämna för framtiden — hubben använder `PodcastSection`). */
+export interface Video {
+  id: string
+  title: string
+  description?: string
+  publishedAt: string
+}
 
 export interface VideoCardProps {
   video: Video

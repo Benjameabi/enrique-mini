@@ -13,6 +13,7 @@ export type LinkIcon =
   | 'email'
   | 'figma'
   | 'substack'
+  | 'phone'
 
 export interface SocialLink {
   /** Stable identifier used as a React key. */
@@ -60,165 +61,173 @@ export interface ToolItem {
   slug: import('../components/ToolIcon/ToolIcon').ToolSlug
 }
 
-export interface Video {
-  /** YouTube video id, taken from the watch URL (`?v=ID`). */
+export interface PodcastShow {
   id: string
   title: string
-  /** Optional one-line description shown beneath the title. */
-  description?: string
-  /** ISO date string — formatted to "MMM d, yyyy" at render time. */
-  publishedAt: string
+  description: string
+  /** Square cover from enriquediaz.se / motiverande-poddar. */
+  imageUrl: string
+  /** Where tapping the card goes (sajtens poddsida). */
+  href: string
 }
 
-export const youtube = {
-  handle: '@benjameabi',
-  channelUrl: 'https://www.youtube.com/@benjameabi',
+/** Canonical webb — samma origin som OG-länkar på enriquediaz.se. */
+export const siteUrl = 'https://www.enriquediaz.se'
+
+/** Sv /poddsida enligt webbplatsens meny. */
+export const podcastPageUrl = `${siteUrl}/motiverande-poddar`
+
+/** Innehåll speglar https://www.enriquediaz.se/motiverande-poddar */
+export const podcastShows: PodcastShow[] = [
+  {
+    id: 'hombres-valientes',
+    title: '«Hombres Valientes»',
+    description:
+      'En guide för män om framgång och mål. Nya avsnitt varje måndag — inspiration och konkret tänkesätt.',
+    imageUrl:
+      'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=656,h=656,fit=crop/AzG3lDJL99I6lXVX/10942869-m2WaZ99Wq7hW3zDP.jpg',
+    href: podcastPageUrl,
+  },
+  {
+    id: 'frid-med-gud',
+    title: 'Frid med Gud!',
+    description: 'En podd om tro och Gud — reflektera och fylla på över tid.',
+    imageUrl:
+      'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=656,h=656,fit=crop/AzG3lDJL99I6lXVX/frid-med-gud-m7V5avkbb3Ur7xzw.jpg',
+    href: podcastPageUrl,
+  },
+  {
+    id: 'man-i-fokus',
+    title: 'Män i fokus',
+    description:
+      'Stöd för män att tänka bättre och nå sina mål — med fokus på tydlighet, mål och handling.',
+    imageUrl:
+      'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=656,h=656,fit=crop/AzG3lDJL99I6lXVX/man-i-fokus-mePbREeNgGTjpa3O.jpg',
+    href: podcastPageUrl,
+  },
+]
+
+export const podcastSectionCopy = {
+  title: 'Motiverande poddar',
+  intro:
+    'Lyssna på motiverande poddar med Enrique Diaz. Lär dig tänka bättre, nå dina mål och utvecklas — nya perspektiv varje vecka.',
+  primaryCta: 'Till poddsidan',
+  primarySubtitle: 'Allt samlat på enriquediaz.se · motiverande-poddar',
 }
 
 export const profile = {
-  name: 'benjame abi',
-  tagline: 'Developer · Film & Photography · Communication',
+  name: 'Enrique Diaz',
+  tagline:
+    'Personlig coaching & mentorskap — stöttande, handlingsorienterat och helhetsfokuserat.',
 }
 
 export const socialLinks: SocialLink[] = [
   {
-    id: 'github',
-    label: 'Github',
-    handle: '@benjameabi',
-    href: 'https://github.com/benjameabi',
-    icon: 'github',
+    id: 'website',
+    label: 'Webbplats',
+    handle: 'enriquediaz.se',
+    href: siteUrl,
+    icon: 'portfolio',
   },
   {
-    id: 'linkedin',
-    label: 'LinkedIn',
-    handle: '@benjameabi',
-    href: 'https://www.linkedin.com/in/benjameabi',
-    icon: 'linkedin',
+    id: 'email',
+    label: 'E-post',
+    handle: 'kontakt@enriquediaz.se',
+    href: 'mailto:kontakt@enriquediaz.se',
+    icon: 'email',
   },
   {
-    id: 'instagram',
-    label: 'Instagram',
-    handle: '@benjameabi',
-    href: 'https://instagram.com/benjameabi',
-    icon: 'instagram',
+    id: 'phone',
+    label: 'Telefon',
+    handle: '+46 73 155 50 52',
+    href: 'tel:+46731555052',
+    icon: 'phone',
   },
   {
-    id: 'substack',
-    label: 'Substack',
-    handle: '@benjameabi',
-    href: 'https://benjameabi.substack.com',
+    id: 'newsletter',
+    label: 'Nyhetsbrev',
+    handle: 'Prenumerera',
+    href: siteUrl,
     icon: 'substack',
-  },
-  {
-    id: 'figma',
-    label: 'Figma',
-    handle: '@benjameabi',
-    href: 'https://figma.com/@benjameabi',
-    icon: 'figma',
   },
 ]
 
 export const featuredWork: FeaturedItem[] = [
   {
-    id: 'portfolio',
-    title: 'Portfolio',
+    id: 'booking',
+    title: 'Ta nästa steg',
     description:
-      "A curated set of case studies spanning product, photography and the films I've shipped over the past few years.",
-    href: 'https://your-portfolio.com',
+      'Behöver du hjälp? Boka ett samtal så kommer vi överens om en plan som möter dina behov och dina mål.',
+    href: siteUrl,
     cover: 'linear-gradient(135deg, #1a1a1a 0%, #3a2410 60%, #ff5e00 140%)',
     coverAccent: '#ffe9d6',
-    coverLabel: 'Portfolio\nTemplate',
+    coverLabel: 'Boka\nsamtal',
     isLive: true,
-    buttonLabel: 'Website',
+    buttonLabel: 'Webbplats',
   },
   {
-    id: 'design-directory',
-    title: 'Design Directory',
+    id: 'coaching',
+    title: 'Vad är coachning?',
     description:
-      'A living index of the references, tools and creators I revisit while building. Open-source and free to remix.',
-    href: 'https://your-portfolio.com/directory',
+      'En framåtblickande process som stärker dig att göra varaktiga förändringar. Vi identifierar värderingar, styrkor och mål och skapar en tydlig plan tillsammans.',
+    href: siteUrl,
     cover: 'radial-gradient(120% 80% at 30% 30%, #2c1a52 0%, #0a0a14 70%)',
     coverAccent: '#ffd49e',
-    coverLabel: 'Design\nDirectory',
+    coverLabel: 'Personlig\ncoachning',
     isLive: true,
-    buttonLabel: 'Website',
-  },
-]
-
-export const tools: ToolItem[] = [
-  {
-    id: 'cursor',
-    slug: 'cursor',
-    name: 'Cursor',
-    description: 'AI-first code editor I use to ship most things shown on this site.',
-    tags: ['Editor', 'AI', 'Free Tier'],
-    iconBg: '#000000',
-  },
-  {
-    id: 'figma',
-    slug: 'figma',
-    name: 'Figma',
-    description: 'Browser-based design tool — perfect for moodboards, wireframes, and design systems.',
-    tags: ['Design', 'Collaboration', 'Free Tier'],
-    iconBg: '#0a0a0a',
-  },
-  {
-    id: 'obsidian',
-    slug: 'obsidian',
-    name: 'Obsidian',
-    description: 'Free open-source markdown vault I lean on to organise notes, research and screenplays.',
-    tags: ['Productivity', 'Open Source', 'Markdown'],
-    iconBg: '#150b2c',
-  },
-  {
-    id: 'davinci',
-    slug: 'davinci',
-    name: 'DaVinci Resolve',
-    description: 'Colour grading and editing platform I use for short-form film work.',
-    tags: ['Video', 'Colour', 'Free Tier'],
-    iconBg: '#0d0f1a',
-  },
-  {
-    id: 'framer',
-    slug: 'framer',
-    name: 'Framer',
-    description: 'For prototyping motion-heavy concepts and shipping marketing pages quickly.',
-    tags: ['Web', 'Prototyping'],
-    iconBg: '#0a0a0a',
+    buttonLabel: 'Läs mer',
   },
 ]
 
 /**
- * Recent videos surfaced in the "Recent Videos" section.
- *
- * Each entry's `id` is the YouTube video id (the value after `youtu.be/`
- * or `?v=` in the watch URL). YouTube serves a high-quality thumbnail at
- * `https://img.youtube.com/vi/<id>/maxresdefault.jpg`, so no asset
- * upload is required — just paste the id.
- *
- * Titles below are placeholders — open each video, copy the real title
- * and paste it in. The thumbnails pull live from YouTube either way.
+ * Carousel themes aligned with offerings on enriquediaz.se. Tile icons reuse
+ * the existing stack artwork as abstract placeholders (copy is the signal).
  */
-export const videos: Video[] = [
+export const tools: ToolItem[] = [
   {
-    id: 'bFV0itPdYn0',
-    title: 'Latest video',
-    publishedAt: '2026-04-20',
+    id: 'balance',
+    slug: 'cursor',
+    name: 'Balans & välmående',
+    description:
+      'Harmoni mellan arbetsliv, familjeliv och ditt mående — så att du kan prestera utan att tappa fotfästet.',
+    tags: ['Livspussel', 'Energi', 'Gränser'],
+    iconBg: '#000000',
   },
   {
-    id: 'G1SSKyNXMuY',
-    title: 'Recent video',
-    publishedAt: '2026-04-05',
+    id: 'performance',
+    slug: 'figma',
+    name: 'Prestation & produktivitet',
+    description:
+      'Konkreta strategier för fokus, prioritering och resultat — i linje med dina mål och värderingar.',
+    tags: ['ROI på tiden', 'Prioritering', 'Vanor'],
+    iconBg: '#0a0a0a',
   },
   {
-    id: 'aP-Wm5YniWw',
-    title: 'Earlier video',
-    publishedAt: '2026-03-18',
+    id: 'growth',
+    slug: 'obsidian',
+    name: 'Personlig utveckling',
+    description:
+      'Djupare självkännedom, förnyad motivation och tydliga nästa steg på din väg framåt.',
+    tags: ['Självledarskap', 'Insikt', 'Mening'],
+    iconBg: '#150b2c',
   },
   {
-    id: 'yUmU_49m0a4',
-    title: 'Older video',
-    publishedAt: '2026-02-26',
+    id: 'discipline',
+    slug: 'davinci',
+    name: 'Disciplin & ansvar',
+    description:
+      'Ramverk som hjälper dig hålla dig till det du lovat dig själv — och fira framstegen längs vägen.',
+    tags: ['Uppföljning', 'Ansvarskultur', 'Lugn tempo'],
+    iconBg: '#0d0f1a',
+  },
+  {
+    id: 'clarity',
+    slug: 'framer',
+    name: 'Tydlighet & riktning',
+    description:
+      'Från snurriga val till en plan som känns rätt: riktning som speglar vem du är och vart du vill.',
+    tags: ['Beslut', 'Värderingar', 'Riktning'],
+    iconBg: '#0a0a0a',
   },
 ]
 

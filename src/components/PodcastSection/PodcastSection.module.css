@@ -1,0 +1,98 @@
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 10px;
+  padding: 0 4px;
+}
+
+.intro {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 16px;
+  padding: 0 4px;
+}
+
+.heroCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 12px;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.heroCard:hover {
+  border-color: rgba(255, 94, 0, 0.55);
+  background: rgba(255, 94, 0, 0.06);
+}
+
+.heroIcon {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(247, 245, 239, 0.12);
+  color: var(--cream);
+  display: grid;
+  place-items: center;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.heroLabel {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.heroSub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.heroPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.heroCard:hover .heroPill {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent);
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
