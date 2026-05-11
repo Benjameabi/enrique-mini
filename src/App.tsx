@@ -4,7 +4,7 @@ import Background from './components/Background/Background'
 import TopNav from './components/TopNav/TopNav'
 import LinkCarousel from './components/LinkCarousel/LinkCarousel'
 import FeaturedSection from './components/FeaturedCard/FeaturedCard'
-import ToolCarousel from './components/ToolCarousel/ToolCarousel'
+import ServiceCarousel from './components/ServiceCarousel/ServiceCarousel'
 import NewsletterCTA from './components/NewsletterCTA/NewsletterCTA'
 import PodcastSection from './components/PodcastSection/PodcastSection'
 import {
@@ -14,8 +14,8 @@ import {
   podcastShows,
   profile,
   socialLinks,
+  services,
   siteUrl,
-  tools,
 } from './data/links'
 
 export default function App() {
@@ -35,7 +35,7 @@ export default function App() {
 
           <FeaturedSection title="Kom igång" items={featuredWork} />
 
-          <ToolCarousel title="Hur jag kan stötta dig" tools={tools} />
+          <ServiceCarousel title="Vilka tjänster erbjuder jag" services={services} />
 
           <PodcastSection
             pageUrl={podcastPageUrl}

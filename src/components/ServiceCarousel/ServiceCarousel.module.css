@@ -74,7 +74,7 @@
   margin-bottom: 8px;
 }
 
-.toolName {
+.serviceName {
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 600;
@@ -132,6 +132,6 @@
 }
 
 .tagPrimary {
-  background: #6c4cff;
-  color: #fff;
+  background: var(--accent);
+  color: #0a0a0a;
 }

@@ -47,18 +47,14 @@ export interface FeaturedItem {
   buttonLabel: string
 }
 
-export interface ToolItem {
+export interface ServiceItem {
   id: string
-  /** Tool / app name displayed in the details panel. */
+  /** Tjänstnamn — samma struktur som under «Vilka tjänster erbjuder jag». */
   name: string
-  /** Short one-or-two-line description. */
   description: string
-  /** Coloured tag pills shown beneath the description. */
   tags: string[]
-  /** Background colour for the icon tile. */
   iconBg: string
-  /** Brand slug used to look up the inline SVG logo. */
-  slug: import('../components/ToolIcon/ToolIcon').ToolSlug
+  glyph: import('../components/ServiceGlyph/ServiceGlyph').ServiceGlyphKind
 }
 
 export interface PodcastShow {
@@ -179,55 +175,25 @@ export const featuredWork: FeaturedItem[] = [
   },
 ]
 
-/**
- * Carousel themes aligned with offerings on enriquediaz.se. Tile icons reuse
- * the existing stack artwork as abstract placeholders (copy is the signal).
- */
-export const tools: ToolItem[] = [
+/** Tjänster under «Vilka tjänster erbjuder jag» på enriquediaz.se */
+export const services: ServiceItem[] = [
   {
-    id: 'balance',
-    slug: 'cursor',
-    name: 'Balans & välmående',
+    id: 'mentorship',
+    name: 'Mentorskap',
     description:
-      'Harmoni mellan arbetsliv, familjeliv och ditt mående — så att du kan prestera utan att tappa fotfästet.',
-    tags: ['Livspussel', 'Energi', 'Gränser'],
-    iconBg: '#000000',
+      'Mentorskap för dig som vill ha stöd över tid: riktning, ansvar och nätverk. Jag drar på erfarenhet av ledarskap och människor som söker mening och vill förverkliga sina drömmar.',
+    tags: ['Långsiktigt', 'Riktning', 'Ansvar'],
+    iconBg: 'linear-gradient(145deg, #1e1640 0%, #352060 55%, #0a0a12 100%)',
+    glyph: 'mentorship',
   },
   {
-    id: 'performance',
-    slug: 'figma',
-    name: 'Prestation & produktivitet',
+    id: 'coaching',
+    name: 'Personlig coachning',
     description:
-      'Konkreta strategier för fokus, prioritering och resultat — i linje med dina mål och värderingar.',
-    tags: ['ROI på tiden', 'Prioritering', 'Vanor'],
-    iconBg: '#0a0a0a',
-  },
-  {
-    id: 'growth',
-    slug: 'obsidian',
-    name: 'Personlig utveckling',
-    description:
-      'Djupare självkännedom, förnyad motivation och tydliga nästa steg på din väg framåt.',
-    tags: ['Självledarskap', 'Insikt', 'Mening'],
-    iconBg: '#150b2c',
-  },
-  {
-    id: 'discipline',
-    slug: 'davinci',
-    name: 'Disciplin & ansvar',
-    description:
-      'Ramverk som hjälper dig hålla dig till det du lovat dig själv — och fira framstegen längs vägen.',
-    tags: ['Uppföljning', 'Ansvarskultur', 'Lugn tempo'],
-    iconBg: '#0d0f1a',
-  },
-  {
-    id: 'clarity',
-    slug: 'framer',
-    name: 'Tydlighet & riktning',
-    description:
-      'Från snurriga val till en plan som känns rätt: riktning som speglar vem du är och vart du vill.',
-    tags: ['Beslut', 'Värderingar', 'Riktning'],
-    iconBg: '#0a0a0a',
+      'Framåtblickande och handlingsorienterad coachning där vi tillsammans tydliggör värderingar, styrkor och hinder — och bygger en plan som hjälper dig nå mål du själv står för.',
+    tags: ['Tydliga mål', 'Värderingar', 'Plan'],
+    iconBg: 'linear-gradient(145deg, #2a1410 0%, #4a2612 52%, #0c0806 100%)',
+    glyph: 'coaching',
   },
 ]
 
