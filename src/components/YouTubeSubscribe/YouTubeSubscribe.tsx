@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import styles from './YouTubeSubscribe.module.css'
+import { springTransition } from '../../motion'
 
 export interface YouTubeSubscribeProps {
   /** Channel handle, e.g. "@benjameabi". */
@@ -28,9 +29,8 @@ export default function YouTubeSubscribe({
         target="_blank"
         rel="noopener noreferrer"
         className={styles.card}
-        whileHover={{ y: -1 }}
-        whileTap={{ scale: 0.99 }}
-        transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+        whileHover={{ y: -2, transition: springTransition }}
+        whileTap={{ scale: 0.99, transition: springTransition }}
       >
         <span className={styles.logoWrap} aria-hidden="true">
           <svg viewBox="0 0 24 17" xmlns="http://www.w3.org/2000/svg">

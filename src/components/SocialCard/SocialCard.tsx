@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import styles from './SocialCard.module.css'
+import { springTransition } from '../../motion'
 import type { SocialLink, LinkIcon } from '../../data/links'
 
 export interface SocialCardProps {
@@ -69,9 +70,8 @@ export default function SocialCard({ link }: SocialCardProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${link.label} ${link.handle}`}
-      whileHover={{ y: -2, scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      transition={{ type: 'spring', stiffness: 360, damping: 26 }}
+      whileHover={{ y: -2, transition: springTransition }}
+      whileTap={{ scale: 0.98, transition: springTransition }}
     >
       <span className={styles.iconWrap} aria-hidden="true">
         {iconMap[link.icon]}

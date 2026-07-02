@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import styles from './VideoCard.module.css'
+import { springTransition } from '../../motion'
 
 /** YouTube-backed row item (lämna för framtiden — hubben använder `PodcastSection`). */
 export interface Video {
@@ -39,8 +40,8 @@ export default function VideoCard({ video }: VideoCardProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={styles.card}
-      whileHover={{ y: -2 }}
-      transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+      whileHover={{ y: -2, transition: springTransition }}
+      whileTap={{ scale: 0.99, transition: springTransition }}
     >
       <div className={styles.cover}>
         <img

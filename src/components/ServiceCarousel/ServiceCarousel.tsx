@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import styles from './ServiceCarousel.module.css'
 import ServiceGlyph from '../ServiceGlyph/ServiceGlyph'
+import { springTransition } from '../../motion'
 import type { ServiceItem } from '../../data/links'
 
 export interface ServiceCarouselProps {
@@ -35,7 +36,7 @@ export default function ServiceCarousel({ title, services }: ServiceCarouselProp
       <div className={styles.panel}>
         <div className={styles.iconRow}>
           {visible.map((item, i) => (
-            <button
+            <motion.button
               key={`${item.id}-${i}`}
               type="button"
               className={`${styles.iconTile} ${i === 1 ? styles.iconTileActive : ''}`}
@@ -44,9 +45,11 @@ export default function ServiceCarousel({ title, services }: ServiceCarouselProp
                 else if (i === 2) goNext()
               }}
               aria-label={item.name}
+              whileHover={i === 1 ? undefined : { y: -2, transition: springTransition }}
+              whileTap={{ scale: 0.97, transition: springTransition }}
             >
               <ServiceGlyph kind={item.glyph} size={i === 1 ? 64 : 52} />
-            </button>
+            </motion.button>
           ))}
         </div>
 

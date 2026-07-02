@@ -59,7 +59,6 @@ export default function ServiceGlyph({ kind, size = 56 }: ServiceGlyphProps) {
         height: size,
         display: 'grid',
         placeItems: 'center',
-        color: 'rgba(255,255,255,0.92)',
       }}
     >
       <span style={{ width: size * 0.72, height: size * 0.72, display: 'block' }}>{map[kind]}</span>

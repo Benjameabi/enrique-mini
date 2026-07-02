@@ -2,24 +2,26 @@
   display: block;
   background: var(--surface);
   border: 1px solid var(--hairline);
-  border-radius: 22px;
+  border-radius: var(--radius-control);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   padding: 12px;
-  transition: border-color 200ms ease;
+  transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
 }
 
 .card:hover {
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent) 4%, var(--surface));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .cover {
   position: relative;
   aspect-ratio: 16 / 9;
-  border-radius: 14px;
+  border-radius: calc(var(--radius-control) - 3px);
   overflow: hidden;
-  background: #000;
+  background: var(--bg);
 }
 
 .thumb {
@@ -42,16 +44,16 @@
   position: absolute;
   width: 56px;
   height: 56px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  transition: background 200ms ease, transform 200ms ease;
+  transition: background-color 200ms ease, transform 200ms ease;
 }
 
 .playOverlay svg {
   position: relative;
-  color: #fff;
+  color: var(--fg);
   margin-left: 4px;
   z-index: 1;
 }
@@ -72,15 +74,16 @@
   line-height: 1.25;
   letter-spacing: -0.02em;
   margin: 0 0 10px;
-  color: #fff;
+  color: var(--fg);
 }
 
 .meta {
-  font-family: var(--font-body);
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 12px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--muted);
   margin: 0 0 10px;
+  letter-spacing: -0.01em;
 }
 
 .metaDot {
@@ -92,6 +95,6 @@
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.7);
+  color: color-mix(in srgb, var(--fg) 70%, transparent);
   margin: 0;
 }

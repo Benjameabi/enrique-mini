@@ -17,22 +17,24 @@
 
 .cardFrame {
   position: relative;
+  overflow: hidden;
 }
 
 .card {
   display: block;
   background: var(--surface);
   border: 1px solid var(--hairline);
-  border-radius: 22px;
+  border-radius: var(--radius-control);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: border-color 200ms ease, background-color 200ms ease;
+  transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
 }
 
 .card:hover {
-  border-color: rgba(255, 94, 0, 0.6);
-  background: rgba(255, 94, 0, 0.04);
+  border-color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent) 4%, var(--surface));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .cover {
@@ -41,7 +43,7 @@
   display: grid;
   place-items: start start;
   padding: 22px;
-  border-radius: 18px 18px 0 0;
+  border-radius: calc(var(--radius-control) - 2px) calc(var(--radius-control) - 2px) 0 0;
 }
 
 .liveBadge {
@@ -49,13 +51,14 @@
   top: 14px;
   right: 14px;
   background: var(--accent);
-  color: white;
-  font-family: var(--font-body);
-  font-size: 12px;
+  color: #0a0a0a;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   z-index: 2;
 }
 
@@ -83,14 +86,14 @@
   letter-spacing: -0.02em;
   margin: 0 0 8px;
   line-height: 1.2;
-  color: #fff;
+  color: var(--fg);
 }
 
 .description {
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted);
   margin: 0 0 18px;
 }
 
@@ -104,20 +107,20 @@
   align-items: center;
   gap: 8px;
   padding: 9px 16px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: white;
+  border: 1px solid var(--hairline-strong);
+  color: var(--fg);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.005em;
-  transition: background 200ms ease, border-color 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease;
 }
 
 .card:hover .button {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.85);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-color: var(--accent);
 }
 
 .controls {
@@ -131,18 +134,19 @@
 .chevron {
   width: 36px;
   height: 36px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--hairline-strong);
+  color: color-mix(in srgb, var(--fg) 85%, transparent);
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: background 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease;
 }
 
 .chevron:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border-color: var(--accent);
 }
 
 .dots {
@@ -154,19 +158,19 @@
 .dot {
   width: 7px;
   height: 7px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   border: 0;
-  background: rgba(255, 255, 255, 0.3);
+  background: color-mix(in srgb, var(--fg) 30%, transparent);
   padding: 0;
   cursor: pointer;
-  transition: background 200ms ease, transform 200ms ease;
+  transition: background-color 200ms ease, transform 200ms ease;
 }
 
 .dot:hover {
-  background: rgba(255, 255, 255, 0.55);
+  background: color-mix(in srgb, var(--fg) 55%, transparent);
 }
 
 .dotActive {
-  background: #fff;
+  background: var(--accent);
   transform: scale(1.15);
 }

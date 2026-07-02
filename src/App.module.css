@@ -24,9 +24,9 @@
   --surface-strong: rgba(38, 38, 40, 0.85);
   --hairline: rgba(255, 255, 255, 0.08);
   --hairline-strong: rgba(255, 255, 255, 0.18);
-  --font-display: 'Inter';
-  --font-body: 'DM Sans';
-  --font-mono: 'JetBrains Mono';
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --space-base: 8px;
   --space-gap: 16px;
   --space-card: 24px;
@@ -99,7 +99,7 @@
   font-size: 15px;
   font-weight: 600;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
+  color: color-mix(in srgb, var(--fg) 85%, transparent);
   margin: 0 0 28px 0;
   letter-spacing: -0.005em;
 }
@@ -120,7 +120,7 @@
   font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: white;
+  color: var(--fg);
   text-decoration: none;
   margin-bottom: 48px;
   line-height: 1.1;
@@ -140,7 +140,7 @@
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--muted);
   margin: 0;
   line-height: 1.4;
   letter-spacing: -0.005em;
@@ -151,7 +151,7 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.4);
+  color: color-mix(in srgb, var(--muted) 70%, transparent);
 }
 
 @media (min-width: 600px) {

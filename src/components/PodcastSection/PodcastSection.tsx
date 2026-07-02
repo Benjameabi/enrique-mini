@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import styles from './PodcastSection.module.css'
 import PodcastShowCard from '../PodcastShowCard/PodcastShowCard'
+import { springTransition, staggerContainer } from '../../motion'
 import type { PodcastShow } from '../../data/links'
 
 export interface PodcastSectionProps {
@@ -36,9 +37,8 @@ export default function PodcastSection({
         target="_blank"
         rel="noopener noreferrer"
         className={styles.heroCard}
-        whileHover={{ y: -1 }}
-        whileTap={{ scale: 0.99 }}
-        transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+        whileHover={{ y: -2, transition: springTransition }}
+        whileTap={{ scale: 0.99, transition: springTransition }}
       >
         <span className={styles.heroIcon} aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
@@ -60,11 +60,17 @@ export default function PodcastSection({
         </span>
       </motion.a>
 
-      <div className={styles.grid}>
+      <motion.div
+        className={styles.grid}
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-40px' }}
+      >
         {shows.map((show) => (
           <PodcastShowCard key={show.id} show={show} />
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }

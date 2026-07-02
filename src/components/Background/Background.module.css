@@ -17,7 +17,7 @@
   max-width: 600px;
   max-height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 7%, transparent) 0%, transparent 70%);
   filter: blur(80px);
   will-change: transform;
   animation: drift1 35s ease-in-out infinite alternate;
@@ -32,7 +32,7 @@
   max-width: 550px;
   max-height: 550px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 4%, transparent) 0%, transparent 70%);
   filter: blur(100px);
   will-change: transform;
   animation: drift2 40s ease-in-out infinite alternate;
@@ -42,7 +42,7 @@
 .grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at center, rgba(245, 158, 11, 0.06) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(circle at center, color-mix(in srgb, var(--accent) 6%, transparent) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
   background-position: 0 0;
   mask-image: radial-gradient(120% 90% at 50% 30%, black 40%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);

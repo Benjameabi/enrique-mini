@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import styles from './FeaturedCard.module.css'
+import { maskReveal, springTransition } from '../../motion'
 import type { FeaturedItem } from '../../data/links'
 
 export interface FeaturedSectionProps {
@@ -34,11 +35,12 @@ export default function FeaturedSection({ title, items }: FeaturedSectionProps) 
             target="_blank"
             rel="noopener noreferrer"
             className={styles.card}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25 }}
-            whileHover={{ scale: 1.005 }}
+            variants={maskReveal}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            whileHover={{ y: -2, transition: springTransition }}
+            whileTap={{ scale: 0.99, transition: springTransition }}
           >
             <div
               className={styles.cover}

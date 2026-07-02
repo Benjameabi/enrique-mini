@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './LinkCarousel.module.css'
 import SocialCard from '../SocialCard/SocialCard'
+import { itemReveal, staggerContainer } from '../../motion'
 import type { SocialLink } from '../../data/links'
 
 export interface LinkCarouselProps {
@@ -67,25 +68,13 @@ export default function LinkCarousel({ title, links }: LinkCarouselProps) {
         <motion.ul
           ref={trackRef}
           className={styles.track}
+          variants={staggerContainer}
           initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.06 },
-            },
-          }}
+          whileInView="visible"
+          viewport={{ once: true, margin: '-20px' }}
         >
           {links.map((link) => (
-            <motion.li
-              key={link.id}
-              className={styles.item}
-              variants={{
-                hidden: { opacity: 0, x: 16 },
-                visible: { opacity: 1, x: 0 },
-              }}
-            >
+            <motion.li key={link.id} className={styles.item} variants={itemReveal}>
               <SocialCard link={link} />
             </motion.li>
           ))}

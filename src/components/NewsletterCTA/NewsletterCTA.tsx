@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import styles from './NewsletterCTA.module.css'
+import { springTransition } from '../../motion'
 
 export interface NewsletterCTAProps {
   href: string
@@ -25,9 +26,8 @@ export default function NewsletterCTA({
         target="_blank"
         rel="noopener noreferrer"
         className={styles.card}
-        whileHover={{ y: -1 }}
-        whileTap={{ scale: 0.99 }}
-        transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+        whileHover={{ y: -2, transition: springTransition }}
+        whileTap={{ scale: 0.99, transition: springTransition }}
       >
         <span className={styles.logoWrap} aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">

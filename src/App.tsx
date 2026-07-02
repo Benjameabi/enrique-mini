@@ -7,6 +7,7 @@ import FeaturedSection from './components/FeaturedCard/FeaturedCard'
 import ServiceCarousel from './components/ServiceCarousel/ServiceCarousel'
 import NewsletterCTA from './components/NewsletterCTA/NewsletterCTA'
 import PodcastSection from './components/PodcastSection/PodcastSection'
+import { sectionReveal, staggerContainer } from './motion'
 import {
   featuredWork,
   podcastPageUrl,
@@ -26,34 +27,44 @@ export default function App() {
         <TopNav name={profile.name} />
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
           className={styles.body}
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
         >
-          <LinkCarousel title="Kontaktvägar" links={socialLinks} />
+          <motion.div variants={sectionReveal}>
+            <LinkCarousel title="Kontaktvägar" links={socialLinks} />
+          </motion.div>
 
-          <FeaturedSection title="Kom igång" items={featuredWork} />
+          <motion.div variants={sectionReveal}>
+            <FeaturedSection title="Kom igång" items={featuredWork} />
+          </motion.div>
 
-          <ServiceCarousel title="Vilka tjänster erbjuder jag" services={services} />
+          <motion.div variants={sectionReveal}>
+            <ServiceCarousel title="Vilka tjänster erbjuder jag" services={services} />
+          </motion.div>
 
-          <PodcastSection
-            pageUrl={podcastPageUrl}
-            title={podcastSectionCopy.title}
-            intro={podcastSectionCopy.intro}
-            primaryCta={podcastSectionCopy.primaryCta}
-            primarySubtitle={podcastSectionCopy.primarySubtitle}
-            shows={podcastShows}
-          />
+          <motion.div variants={sectionReveal}>
+            <PodcastSection
+              pageUrl={podcastPageUrl}
+              title={podcastSectionCopy.title}
+              intro={podcastSectionCopy.intro}
+              primaryCta={podcastSectionCopy.primaryCta}
+              primarySubtitle={podcastSectionCopy.primarySubtitle}
+              shows={podcastShows}
+            />
+          </motion.div>
 
-          <NewsletterCTA href={siteUrl} />
+          <motion.div variants={sectionReveal}>
+            <NewsletterCTA href={siteUrl} />
+          </motion.div>
         </motion.div>
 
         <motion.footer
           className={styles.footer}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.45, ease: [0.2, 0.8, 0.2, 1] }}
         >
           <p className={styles.footerTagline}>
             Börja på en resa mot den bästa versionen av dig själv.{' '}

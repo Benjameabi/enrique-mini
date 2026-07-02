@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import styles from './PodcastShowCard.module.css'
+import { itemReveal, springTransition } from '../../motion'
 import type { PodcastShow } from '../../data/links'
 
 export interface PodcastShowCardProps {
@@ -17,8 +18,9 @@ export default function PodcastShowCard({ show }: PodcastShowCardProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={styles.card}
-      whileHover={{ y: -2 }}
-      transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+      variants={itemReveal}
+      whileHover={{ y: -2, transition: springTransition }}
+      whileTap={{ scale: 0.99, transition: springTransition }}
     >
       <div className={styles.cover}>
         <img
