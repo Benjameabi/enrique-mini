@@ -6,6 +6,10 @@ export interface PodcastShowCardProps {
   show: PodcastShow
 }
 
+/**
+ * Card representing a podcast show, featuring a square cover image, a play icon badge,
+ * and text details. It aligns with the 11px border radius, hairline borders, and hover-lift consistency.
+ */
 export default function PodcastShowCard({ show }: PodcastShowCardProps) {
   return (
     <motion.a

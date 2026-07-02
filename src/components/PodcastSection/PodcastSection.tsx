@@ -12,6 +12,10 @@ export interface PodcastSectionProps {
   shows: PodcastShow[]
 }
 
+/**
+ * Section displaying the motivational podcasts with consistent 80px padding spacing,
+ * Inter display typography headings, and child show cards.
+ */
 export default function PodcastSection({
   pageUrl,
   title,

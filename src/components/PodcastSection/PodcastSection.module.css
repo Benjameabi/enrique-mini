@@ -1,5 +1,5 @@
 .section {
-  margin-bottom: 24px;
+  padding-bottom: var(--space-section);
 }
 
 .sectionTitle {
@@ -28,24 +28,24 @@
   padding: 14px;
   background: var(--surface);
   border: 1px solid var(--hairline);
-  border-radius: 16px;
+  border-radius: var(--radius-control);
   text-decoration: none;
   color: inherit;
   margin-bottom: 12px;
-  transition: border-color 200ms ease, background 200ms ease;
+  transition: border-color 200ms ease, background-color 200ms ease;
 }
 
 .heroCard:hover {
-  border-color: rgba(255, 94, 0, 0.55);
-  background: rgba(255, 94, 0, 0.06);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
 }
 
 .heroIcon {
   flex: 0 0 auto;
   width: 40px;
   height: 40px;
-  border-radius: 10px;
-  background: rgba(247, 245, 239, 0.12);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--cream) 12%, transparent);
   color: var(--cream);
   display: grid;
   place-items: center;
@@ -77,13 +77,13 @@
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  transition: background 200ms ease, border-color 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease;
 }
 
 .heroCard:hover .heroPill {

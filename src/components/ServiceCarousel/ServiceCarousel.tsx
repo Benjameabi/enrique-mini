@@ -44,7 +44,6 @@ export default function ServiceCarousel({ title, services }: ServiceCarouselProp
                 else if (i === 2) goNext()
               }}
               aria-label={item.name}
-              style={{ background: item.iconBg }}
             >
               <ServiceGlyph kind={item.glyph} size={i === 1 ? 64 : 52} />
             </button>

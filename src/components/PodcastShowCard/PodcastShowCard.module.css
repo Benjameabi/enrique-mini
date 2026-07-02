@@ -2,22 +2,24 @@
   display: block;
   background: var(--surface);
   border: 1px solid var(--hairline);
-  border-radius: 22px;
+  border-radius: var(--radius-control);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   padding: 12px;
-  transition: border-color 200ms ease;
+  transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
 }
 
 .card:hover {
-  border-color: rgba(255, 94, 0, 0.45);
+  border-color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent) 4%, var(--surface));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .cover {
   position: relative;
   aspect-ratio: 1;
-  border-radius: 14px;
+  border-radius: 8px;
   overflow: hidden;
   background: #0d0d0d;
 }
@@ -35,7 +37,7 @@
   bottom: 12px;
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: rgba(0, 0, 0, 0.62);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
