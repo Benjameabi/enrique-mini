@@ -1,7 +1,7 @@
 import styles from './TopNav.module.css'
 
 export interface TopNavProps {
-  /** Centered name shown in the cream pill nav. */
+  /** Centered name shown in the cream pill nav, styled with the mono font. */
   name?: string
 }
 

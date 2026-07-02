@@ -4,10 +4,101 @@
   z-index: -1;
   pointer-events: none;
   background-color: var(--bg);
-  background-image:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.07) 1px, transparent 1.4px);
-  background-size: 22px 22px;
+  overflow: hidden;
+}
+
+/* Ambient glows */
+.blob1 {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.07) 0%, transparent 70%);
+  filter: blur(80px);
+  will-change: transform;
+  animation: drift1 35s ease-in-out infinite alternate;
+}
+
+.blob2 {
+  position: absolute;
+  bottom: 5%;
+  left: -5%;
+  width: 45vw;
+  height: 45vw;
+  max-width: 550px;
+  max-height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.04) 0%, transparent 70%);
+  filter: blur(100px);
+  will-change: transform;
+  animation: drift2 40s ease-in-out infinite alternate;
+}
+
+/* Dot grid overlay */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at center, rgba(245, 158, 11, 0.06) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
   background-position: 0 0;
-  mask-image: radial-gradient(120% 90% at 50% 30%, black 30%, rgba(0, 0, 0, 0.45) 80%, transparent 100%);
-  -webkit-mask-image: radial-gradient(120% 90% at 50% 30%, black 30%, rgba(0, 0, 0, 0.45) 80%, transparent 100%);
+  mask-image: radial-gradient(120% 90% at 50% 30%, black 40%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 30%, black 40%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
+}
+
+/* Floating particles container */
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Particle styling */
+.particle {
+  position: absolute;
+  bottom: -20px;
+  background-color: var(--accent);
+  border-radius: var(--radius-pill);
+  filter: blur(0.5px);
+  will-change: transform, opacity;
+  animation: floatUp linear infinite;
+  opacity: 0;
+}
+
+@keyframes drift1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-8%, 12%) scale(1.08);
+  }
+}
+
+@keyframes drift2 {
+  0% {
+    transform: translate(0, 0) scale(1.05);
+  }
+  100% {
+    transform: translate(12%, -8%) scale(0.95);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--p-opacity, 0.2);
+  }
+  90% {
+    opacity: var(--p-opacity, 0.2);
+  }
+  100% {
+    transform: translateY(-105vh) translateX(var(--drift, 30px)) scale(1.2);
+    opacity: 0;
+  }
 }
